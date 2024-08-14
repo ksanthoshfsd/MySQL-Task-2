@@ -1,0 +1,52 @@
+
+Design DB model for Guvi Zen class
+
+create table DEPARTMENT
+(dept_id int primary key, dept_name varchar(30) );
+
+
+create table TOPIC
+(topic_id int primary key, 
+JS_base_to_advance varchar(30),
+HTML_base_to_advance varchar(30),
+CSS_base_to_advance varchar(30),
+DOM_base_to_advance varchar(30),
+Async_Await varchar(30),
+React_base_to_advance varchar(30),
+MySql_BASE_base_to_advance varchar(30),
+student_id int, 
+foreign key(student_id) references STUDENT (student_id) );
+
+
+create table STUDENT
+(student_id int primary key, 
+first_name varchar(30),
+last_name varchar(30),
+age int, 
+dept_id int, 
+foreign key(dept_id) references department (dept_id) );
+
+
+create table BATCH
+(batch_id int primary key, 
+batch_year varchar(30),
+dept_id int, 
+foreign key(dept_id) references department (dept_id) );
+
+
+create table TASK
+(task_id int primary key, 
+task_1 int,
+task_2 int,
+task_3 int,
+dept_id int, 
+foreign key(dept_id) references department (dept_id) );
+
+
+create table ATTENDANCE
+(student_id int primary key, 
+first_name varchar(30),
+last_name varchar(30),
+dept_id int, 
+foreign key(dept_id) references department (dept_id) );
+
